@@ -14,4 +14,4 @@ get a reference to the event loop, it will automatically be started at the end o
 });
 ```
 ## Installation
-```composer require eventloop/eventloop```
+```composer require voryx/event-loop```
