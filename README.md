@@ -12,6 +12,9 @@ get a reference to the event loop, it will automatically be started at the end o
 \EventLoop\addTimer(5, function () {
     echo "Hello after 5 seconds\n";
 });
+
+// just get a reference for use in other places
+$loop = \EventLoop\getLoop();
 ```
 ## Installation
 ```composer require voryx/event-loop```
