@@ -2,7 +2,16 @@
 
 namespace EventLoop;
 
+use React\EventLoop\LoopInterface;
 use React\EventLoop\Timer\TimerInterface;
+
+/**
+ * @param LoopInterface $loop
+ * @throws \Exception
+ */
+function setLoop(LoopInterface $loop) {
+    EventLoop::setLoop($loop);
+}
 
 /**
  * @return \React\EventLoop\LibEventLoop
