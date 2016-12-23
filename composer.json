@@ -1,31 +1,33 @@
 {
-    "name": "voryx/event-loop",
-    "type": "library",
-    "description": "Global static wrapper for react event-loop",
-    "keywords": [
-        "global",
-        "static",
-        "eventloop",
-        "event-loop",
-        "timer"
-    ],
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Matt Bonneau", "email": "matt@bonneau.net", "role": "Developer"
-        },
-
-        {
-            "name": "David Dan", "email": "davidwdan@gmail.com", "role": "Developer"
-        }
-    ],
-    "require": {
-        "react/event-loop": "~0.4.1"
+  "name": "voryx/event-loop",
+  "type": "library",
+  "description": "Global static wrapper for react event-loop",
+  "keywords": [
+    "global",
+    "static",
+    "eventloop",
+    "event-loop",
+    "timer"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Matt Bonneau",
+      "email": "matt@bonneau.net",
+      "role": "Developer"
     },
-    "autoload": {
-        "psr-4": {
-            "EventLoop\\": "src"
-        },
-        "files": ["src/functions.php"]
+    {
+      "name": "David Dan",
+      "email": "davidwdan@gmail.com",
+      "role": "Developer"
     }
+  ],
+  "require": {
+    "wyrihaximus/react-async-interop-loop": "0.1.0"
+  },
+  "autoload": {
+    "files": [
+      "src/bootstrap.php"
+    ]
+  }
 }
