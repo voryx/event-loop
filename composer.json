@@ -23,7 +23,7 @@
     }
   ],
   "require": {
-    "wyrihaximus/react-async-interop-loop": "0.1.0"
+    "wyrihaximus/react-async-interop-loop": "^0.2.1"
   },
   "autoload": {
     "files": [
