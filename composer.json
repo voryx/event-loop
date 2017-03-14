@@ -23,10 +23,14 @@
     }
   ],
   "require": {
-    "wyrihaximus/react-async-interop-loop": "^0.2.1"
+    "react/event-loop": "^0.4.2"
   },
   "autoload": {
+    "psr-4": {
+      "EventLoop\\": "src"
+    },
     "files": [
+      "src/functions.php",
       "src/bootstrap.php"
     ]
   }

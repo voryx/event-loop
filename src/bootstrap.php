@@ -1,10 +1,7 @@
 <?php
 
-use Interop\Async\Loop;
-use WyriHaximus\React\AsyncInteropLoop\ReactDriverFactory;
-
-Loop::setFactory(ReactDriverFactory::createFactory());
-
-register_shutdown_function(function () {
-    Loop::execute(function () {}, Loop::get());
-});
+if (class_exists('\Rx\Scheduler\EventLoopScheduler') && class_exists('\Rx\Scheduler')) {
+    \Rx\Scheduler::setDefaultFactory(function () {
+        return new \Rx\Scheduler\EventLoopScheduler(\EventLoop\getLoop());
+    });
+}

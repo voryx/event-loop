@@ -2,27 +2,58 @@
 
 namespace EventLoop\Tests\Unit;
 
+use EventLoop\EventLoop;
 use EventLoop\Tests\TestCase;
-use Interop\Async\Loop;
+use React\EventLoop\Factory;
 
 class EventLoopTest extends TestCase
 {
-    public function testAutoStart()
-    {
-        Loop::defer(function () {
-            $this->assertTrue(true);
-        });
+    private function resetStaticLoop() {
+        $ref = new \ReflectionClass(EventLoop::class);
+        $prop = $ref->getProperty('loop');
+        $prop->setAccessible(true);
+        $prop->setValue(null);
+        $prop->setAccessible(false);
     }
 
-    public function testDefer()
+    public function setup() {
+        $this->resetStaticLoop();
+    }
+
+    public function testSetLoop()
     {
-        $started = false;
-        Loop::defer(function () use (&$started) {
-            $started = true;
-        });
+        $loop = Factory::create();
 
-        Loop::get()->run();
+        \EventLoop\setLoop($loop);
 
-        $this->assertTrue($started);
+        $this->assertSame($loop, \EventLoop\getLoop());
+    }
+
+    public function testSetLoopSameInstance()
+    {
+        $loop = \EventLoop\getLoop();
+
+        \EventLoop\setLoop($loop);
+
+        $this->assertSame($loop, \EventLoop\getLoop());
+    }
+
+    public function testGetLoopWithoutSet() {
+        $loop = \EventLoop\getLoop();
+
+        $this->assertSame($loop, \EventLoop\getLoop());
+    }
+
+    /**
+     * @expectedException \Exception
+     */
+    public function testSettingDifferentInstance() {
+        \EventLoop\getLoop();
+
+        \EventLoop\setLoop(Factory::create());
+    }
+
+    public function testGetLoopTwice() {
+        $this->assertSame(\EventLoop\getLoop(), \EventLoop\getLoop());
     }
 }
