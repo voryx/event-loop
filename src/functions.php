@@ -58,14 +58,3 @@ function addPeriodicTimer($interval, callable $callback) {
 function cancelTimer(TimerInterface $timer) {
     getLoop()->cancelTimer($timer);
 }
-
-/**
- * Check if a given timer is active.
- *
- * @param TimerInterface $timer The timer to check.
- *
- * @return boolean True if the timer is still enqueued for execution.
- */
-function isTimerActive(TimerInterface $timer) {
-    return getLoop()->isTimerActive($timer);
-}
