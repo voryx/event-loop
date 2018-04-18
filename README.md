@@ -7,4 +7,4 @@ There's nothing to do, just install it with composer
 
 ```bash
 ## Installation
-```composer require voryx/event-loop:2.0```
+```composer require voryx/event-loop```
