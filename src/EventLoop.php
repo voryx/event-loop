@@ -44,7 +44,7 @@ class EventLoop
             }
         });
 
-        static::$loop->nextTick(function () use (&$hasBeenRun) {
+        static::$loop->futureTick(function () use (&$hasBeenRun) {
             $hasBeenRun = true;
         });
     }
