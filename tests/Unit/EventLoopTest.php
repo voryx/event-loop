@@ -3,7 +3,7 @@
 namespace EventLoop\Tests\Unit;
 
 use EventLoop\EventLoop;
-use EventLoop\Tests\TestCase;
+use PHPUnit\Framework\TestCase;
 use React\EventLoop\Factory;
 
 class EventLoopTest extends TestCase
