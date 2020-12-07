@@ -3,12 +3,11 @@
 namespace EventLoop;
 
 use React\EventLoop\Factory;
-use React\EventLoop\LibEventLoop;
 use React\EventLoop\LoopInterface;
 
 class EventLoop
 {
-    /** @var LibEventLoop */
+    /** @var LoopInterface */
     static private $loop;
 
     static public function setLoop(LoopInterface $loop) {
