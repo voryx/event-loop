@@ -3,6 +3,7 @@
 namespace EventLoop;
 
 use React\EventLoop\Factory;
+use React\EventLoop\Loop;
 use React\EventLoop\LoopInterface;
 
 class EventLoop
@@ -27,7 +28,7 @@ class EventLoop
             return static::$loop;
         }
 
-        static::$loop = Factory::create();
+        static::$loop = class_exists('React\EventLoop\Loop') ? Loop::get() : Factory::create();
 
         static::registerLoopRunner();
 
