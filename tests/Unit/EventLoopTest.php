@@ -16,7 +16,7 @@ class EventLoopTest extends TestCase
         $prop->setAccessible(false);
     }
 
-    public function setup() {
+    public function setup() : void {
         $this->resetStaticLoop();
     }
 
@@ -44,10 +44,8 @@ class EventLoopTest extends TestCase
         $this->assertSame($loop, \EventLoop\getLoop());
     }
 
-    /**
-     * @expectedException \Exception
-     */
     public function testSettingDifferentInstance() {
+        $this->expectException(\Exception::class);
         \EventLoop\getLoop();
 
         \EventLoop\setLoop(Factory::create());
