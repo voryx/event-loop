@@ -1,4 +1,4 @@
-# Auto creates and starts the react interop event loop
+# Auto creates and starts the react event loop
 
 This library does nothing more than create a react event loop factory and register it to start when the script runs `register_shutdown_function`
 
